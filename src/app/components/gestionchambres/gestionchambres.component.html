@@ -1,0 +1,270 @@
+<div class="container">
+    <h1 class="text-center text-success m-5">Gestion de Nos Chambres</h1>
+
+    <!--------------- Bouton AJOUTER/CREER ------------------------------------------------------------------------->
+    <div type="button" class="btn text-bg-success" data-bs-toggle="modal" data-bs-target="#modalVierge"
+        >Nouvelle chambre?
+    </div>
+
+    <!--------------- Modal --------------------------------------------------->
+    <form (ngSubmit)="saveNouvelleChambre(chambre)" #chambre="ngForm" class="modal fade" id="modalVierge"
+        data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Enregistrer une nouvelle chambre</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">lien image</span>
+                            <input type="text" [(ngModel)]="chambremodifiee.img" name="img" required>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Titre</span>
+                            <input type="text" [(ngModel)]="chambremodifiee.title" name="title" required>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Description</span>
+                            <input type="text" [(ngModel)]="chambremodifiee.description" name="description" required>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Exposition</span>
+                            <input type="text" [(ngModel)]="chambremodifiee.exposure" name="exposure" required>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Catégorie</span>
+                            <input type="text" [(ngModel)]="chambremodifiee.category" name="category" required>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Prix par nuit</span>
+                            <input type="number" [(ngModel)]="chambremodifiee.price" name="price" required>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Standing</span>
+                            <input type="text" [(ngModel)]="chambremodifiee.standing" name="standing" required>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Confirmer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <!------------------------------------------------ affichage des chambres en tableau --------------------------------------->
+
+    <div class="container">
+        <h1 class="text-center text-success m-5">Les chambres</h1>
+
+        <table class="table">
+            <thead>
+                <tr class="text-warning">
+                    <th scope="col">image</th>
+                    <th scope="col">titre</th>
+                    <th scope="col">prix</th>
+                    <th scope="col">desc</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let chambre of chambres;">
+                    <td scope="row"><img class="border rounded-circle" style="width: 50px;" src="{{chambre.img}}"></td>
+                    <td>{{chambre.title}}</td>
+                    <td>{{chambre.price}} €/nuit</td>
+                    <td>{{chambre.description}}</td>
+                    <td>
+                        <!--------------- Bouton SUPPRIMER ------------------------------------------------------------------------->
+                        <div type="button" class="btn text-bg-danger me-2" (click)="suppressionchambre(chambre.id)"> X
+                        </div>
+
+                        <!--------------- Bouton MODIFIER ------------------------------------------------------------------------->
+                        <div type="button" class="btn text-bg-warning" data-bs-toggle="modal"
+                            data-bs-target="#modalPreRemplie" (click)="edit(chambre)"> <i class="fa-solid fa-pen"></i>
+                        </div>
+
+                        <!--------------- Modal --------------------------------------------------->
+                        <form class="modal fade" id="modalPreRemplie" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Rappel Infos Chambre {{chambremodifiee.title}}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="row">
+
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">Titre</span>
+                                                <input type="text" [(ngModel)]="chambremodifiee.title" name="title">
+                                            </div>
+
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">Description</span>
+                                                <input type="text" [(ngModel)]="chambremodifiee.description"
+                                                    name="description">
+                                            </div>
+
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">Exposition</span>
+                                                <input type="text" [(ngModel)]="chambremodifiee.exposure"
+                                                    name="exposure">
+                                            </div>
+
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">Catégorie</span>
+                                                <input type="text" [(ngModel)]="chambremodifiee.category"
+                                                    name="category">
+                                            </div>
+
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">Prix par nuit</span>
+                                                <input type="number" [(ngModel)]="chambremodifiee.price" name="price">
+                                            </div>
+
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">Standing</span>
+                                                <input type="text" [(ngModel)]="chambremodifiee.standing"
+                                                    name="standing">
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                                (click)="modificationchambre()">Enregistrer la mise à jour</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                        <!-- ***********************************  fin modal    ****************************************************** -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+    <!-- affichage des chambres en vignettes (à finir... ou PAS!!!) -->
+
+    <!-------------------------------- DEBUT de la boucle For ------------------------------------------------------------->
+    <!-- <div class="row">
+        <div class="card col-4 mt-2" *ngFor="let chambre of chambres;">
+            <img class="card-img-top" src="{{chambre.img}}" alt="Card image cap" height="230px">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <h5 class="card-title">{{chambre.title}}</h5>
+                        <p class="card-text text-muted">{{chambre.description}}</p>
+                    </div>
+                    <div class="col-6 prix">
+                        <button class="btn btn-secondary">{{chambre.price}} €/nuit</button>
+                    </div>
+                </div> -->
+
+    <!--------------- Bouton SUPPRIMER ------------------------------------------------------------------------->
+    <!-- <div type="button" class="btn text-bg-danger float-end" (click)="suppressionchambre(chambre.id)">
+                    Supprimer
+                </div> -->
+
+    <!--------------- Bouton MODIFIER ------------------------------------------------------------------------->
+    <!--------------- Button trigger modal (click d'ouverture de la Modale) ------------------------------------>
+    <!-- <div type="button" class="btn text-bg-warning float-start" data-bs-toggle="modal"
+                    data-bs-target="#modalPreRemplie" (click)="chambresDispo()"> Modifier
+                </div> -->
+
+    <!--------------- Modal --------------------------------------------------->
+    <!-- (ngSubmit)="modificationchambre()" -->
+    <!-- A rajouter entre form et #chambre quand je saurais précisement quelle méthode appeler -->
+    <!-- <form #chambre="ngForm" class="modal fade" id="modalPreRemplie" data-bs-backdrop="static"
+                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Modifier cette chambre
+                                    {{chambre.title}}</h5> -->
+    <!-- ATTENTION: toujours le titre la chambre 1!!!! -->
+    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="row"> -->
+    <!-- voir comment rajouter ngModel class="form-control" -->
+    <!-- N.B.: ai enlevé id des input -->
+    <!-- <div class="input-group mb-3">
+                                        <span class="input-group-text">lien image</span>
+                                        <input type="text" name="imgChambre">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Titre</span>
+                                        <input type="text" name="titleChambre">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Description</span>
+                                        <input type="text" name="descriptChambre">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Exposition</span>
+                                        <input type="text" name="expoChambre">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Catégorie</span>
+                                        <input type="text" name="categoryChambre">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Prix par nuit</span>
+                                        <input type="number" name="priceChambre">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Standing</span>
+                                        <input type="text" name="luxChambre">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Annuler</button>
+                                    <button type="submit" class="btn btn-success">Confirmer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div> -->

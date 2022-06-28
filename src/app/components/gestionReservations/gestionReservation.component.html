@@ -1,0 +1,42 @@
+<div class="container">
+    <h1 class="text-center text-success m-5">Gestion des Réservations</h1>
+
+    <!------- affichage des Réservations en tableau ---------------->
+    <div class="container">
+        <h1 class="text-center text-success m-5">Les Réservations</h1>
+
+        <table class="table">
+            <thead>
+                <tr class="text-warning">
+                    <th >id</th>
+                    <th >Nom de la chambre</th>
+                    <th >nom du Client</th>
+                    <th >date d'Arrivée</th>
+                    <th >durée du séjour</th>
+                    <th >prix</th>
+                    <th >prix Total</th>  
+                    <th >action</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let r of reservations; let i=index">
+                    <td>{{r.id}}</td>
+                    <td>{{r.chambertitle}}</td>
+                    <td>{{r.nameClient}}</td>
+                    <td>{{r.arrivaldate}}</td>
+                    <td>{{r.dureereservation}}</td>
+                    <td>{{r.price}} €/nuit</td>
+                    <td>{{r.totalPrice}}</td>
+                    <button (click)="changeConfirmation(r)" [ngClass]="{'bg-success':r.confirme, 'bg-danger': !r.confirme}">
+                        <strong class="btn" *ngIf="!r.confirme">
+                            Annuler
+                        </strong>
+                        <strong class="btn" *ngIf="r.confirme">
+                            Reserver
+                        </strong>
+                    </button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,208 @@
+{
+  "chambres": [
+    {
+      "id": 1,
+      "img": "https://th.bing.com/th/id/OIP.uuaUImc6rD3yf2e3TXgc-AHaE8?pid=ImgDet&rs=1",
+      "title": "chambre jaune",
+      "description": "  haruur iste, enim soluta repellat corporis sit. Pariatur neque placeat, optio perferendis quia praesentium commodi fugit quaerat. Quae, eos!",
+      "exposure": "sud-est",
+      "category": "chambre double",
+      "price": 123,
+      "standing": "5 étoiles"
+    },
+    {
+      "id": 2,
+      "img": "https://media.istockphoto.com/photos/bedroom-picture-id113155320?k=20&m=113155320&s=612x612&w=0&h=ZAFM4hh0sHVwFKN8_9wplP3hjNR6lNVm5XSv5KmZOhI=",
+      "title": "chambre rouge",
+      "description": " elit. Ipsa ht corporis sit. Pariatur neque placeat, optio perferendis quia praesentium commodi fugit quaerat. Quae, eos!",
+      "exposure": "sud-est",
+      "category": "chambre double",
+      "price": "130",
+      "standing": "5 étoiles"
+    },
+    {
+      "id": 3,
+      "img": "https://i.pinimg.com/originals/b9/05/bb/b905bb95fecd4b82c198ad5abcc0950e.jpg",
+      "title": "chambre bleue",
+      "description": " rporis sit. Pariatur neque placeat, optio perferendis quia praesentium commodi fugit quaerat. Quae, eos!",
+      "exposure": "sud-ouet",
+      "category": "chambre double",
+      "price": "125",
+      "standing": "5 étoiles"
+    },
+    {
+      "id": 4,
+      "img": "https://lepalacedanfa-hotel.com/images/room/1550597070.jpg",
+      "title": "chambre lin",
+      "description": " elis sit. Pariatur neque placeat, optio perferendis quia praesentium commodi fugit quaerat. Quae, eos!",
+      "exposure": "nord-est",
+      "category": "chambre double",
+      "price": "110",
+      "standing": "5 étoiles"
+    },
+    {
+      "id": 5,
+      "img": "https://www.boutchambre.fr/wp-content/uploads/2016/04/deco-chambre-ado-vert-anis-chocolat-9.jpg",
+      "title": "chambre anis",
+      "description": " r iste, eoris sit. Pariatur neque placeat, optio perferendis quia praesentium commodi fugit quaerat. Quae, eos!",
+      "exposure": "nord-ouest",
+      "category": "chambre double",
+      "price": "110",
+      "standing": "5 étoiles"
+    },
+    {
+      "id": 6,
+      "img": "https://i.pinimg.com/originals/86/b2/b9/86b2b9d9b442e768bae8482813283214.jpg",
+      "title": "chambre rubis",
+      "description": " corporis sit. Pariatur neque placeat, optio perferendis quia praesentium commodi fugit quaerat. Quae, eos!",
+      "exposure": "sud-est",
+      "category": "chambre double",
+      "price": 135,
+      "standing": "5 étoiles"
+    },
+    {
+      "img": "https://www.meublerdesign.com/1194-large_default/pour-la-chambre-lit-led-design-julio.webp",
+      "title": " chambre blanche",
+      "description": " blablabli et blablabla",
+      "exposure": "sud-est",
+      "category": "chambre simple",
+      "price": 80,
+      "standing": "4 étoiles",
+      "id": 11
+    },
+    {
+      "img": "https://img.freepik.com/photos-gratuite/design-interieur-chambre-simple-moderne_542613-105.jpg?w=2000",
+      "title": "chambre grise",
+      "description": "enim soluta repellat corporis sit. Pariatur neque placeat, optio perferendis quia praesentium commodi fugit quaerat. Quae, eos!",
+      "exposure": "sud-est",
+      "category": "chambre simple",
+      "price": 90,
+      "standing": "5 étoiles",
+      "id": 12
+    },
+    {
+      "img": "https://thumbs.dreamstime.com/b/la-chambre-%C3%A0-coucher-des-enfants-dans-des-tons-l%C3%A9gers-classiques-modernes-avec-les-rococos-e-51625215.jpg",
+      "title": "chambre princesse",
+      "description": "idéal pour une petite princesse",
+      "exposure": "sud-est",
+      "category": "chambre simple",
+      "price": 90,
+      "standing": "5 étoiles",
+      "id": 13
+    },
+    {
+      "img": "https://thumbs.dreamstime.com/b/petite-chambre-%C3%A0-coucher-avec-des-oreillers-sur-du-lit-simple-et-des-lumi%C3%A8res-tourn%C3%A9s-67219507.jpg",
+      "title": "chambre ciel",
+      "description": "joli chambre au calme, donnant sur cours",
+      "exposure": "nord-ouest",
+      "category": "chambre simple",
+      "price": 80,
+      "standing": "5 étoiles",
+      "id": 14
+    },
+    {
+      "img": "http://www.hotelacademie.be/media/image/image_2019-02-24-07-50-43_5c723ec361c43__dsc3230-single-crop.jpg",
+      "title": "chambre sobre",
+      "description": "donnat sur cours, chambre sobre",
+      "exposure": "nord-est",
+      "category": "chambre simple",
+      "price": 75,
+      "standing": "4 étoiles",
+      "id": 15
+    }
+  ],
+  "reservations": [
+    {
+      "nameClient": "tata",
+      "arrivaldate": "20 06 2022",
+      "dureereservation": "14",
+      "chamberprice": "130",
+      "chambertitle": "chambre rouge",
+      "id": 1,
+      "confirme": false
+    },
+    {
+      "nameClient": "francaine dupont",
+      "arrivaldate": "29/06/2022",
+      "dureereservation": "7",
+      "chamberprice": "125",
+      "chambertitle": "chambre jaune",
+      "id": 2,
+      "confirme": true
+    },
+    {
+      "nameClient": "francaine dupont",
+      "arrivaldate": "29/06/2022",
+      "dureereservation": "7",
+      "chamberprice": "125",
+      "chambertitle": "chambre bleue",
+      "id": 3,
+      "confirme": false
+    },
+    {
+      "nameClient": "francaine dupont",
+      "arrivaldate": "20 06 2022",
+      "dureereservation": "14",
+      "chamberprice": "130",
+      "chambertitle": "chambre rouge",
+      "id": 4,
+      "confirme": true
+    },
+    {
+      "nameClient": "elkfdoe",
+      "arrivaldate": "29/06/2022",
+      "dureereservation": "7",
+      "chamberprice": "125",
+      "chambertitle": "chambre bleue",
+      "id": 5,
+      "confirme": false
+    },
+    {
+      "nameClient": "Victor G.",
+      "arrivaldate": "29/07/2022",
+      "dureereservation": "10",
+      "chamberprice": "125",
+      "chambertitle": "chambre bleue",
+      "id": 6,
+      "confirme": true
+    },
+    {
+      "nameClient": "elo",
+      "arrivaldate": "20 06 2022",
+      "dureereservation": "14",
+      "chamberprice": 135,
+      "chambertitle": "chambre rubis",
+      "totalPrice": 1890,
+      "id": 7,
+      "confirme": false
+    },
+    {
+      "nameClient": "miniMoi",
+      "arrivaldate": "16/06/2022",
+      "dureereservation": "2",
+      "chamberprice": 80,
+      "chambertitle": " chambre blanche",
+      "totalPrice": 160,
+      "id": 8,
+      "confirme": false
+    },
+    {
+      "nameClient": "MARVEL",
+      "arrivaldate": "16/07/2022",
+      "dureereservation": "15",
+      "chamberprice": "110",
+      "chambertitle": "chambre anis",
+      "totalPrice": 1650,
+      "id": 9
+    },
+    {
+      "nameClient": "SIMPSON",
+      "arrivaldate": "18/08/2022",
+      "dureereservation": "10",
+      "chamberprice": 135,
+      "chambertitle": "chambre rubis",
+      "totalPrice": 1350,
+      "id": 10
+    }
+  ]
+}

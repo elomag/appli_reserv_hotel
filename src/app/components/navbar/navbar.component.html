@@ -1,0 +1,83 @@
+<!-- ***************partie GAUCHE de la NavBar**************** -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="">Hotel Victor</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active text-success" aria-current="page" routerLink="chambres">Chambres</a>
+        </li>
+      </ul>
+
+      <!-- *****************partie DROITE de la NavBar****************** -->
+
+      <!-- Button trigger modal -->
+      <button *ngIf="!c" button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Connexion
+      </button>
+
+      <!----------------------------------- Modal -------------------------------------------->
+      <form (ngSubmit)="verifConnect(user.value)" #user="ngForm" class="modal fade" id="staticBackdrop"
+        data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Saisissez votre NOM et votre MOT de PASSE</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!---------------partie à saisir par l'utilisateur ----------------------------->
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">NOM</span>
+                <input type="text" name="userName" ngModel class="form-control">
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon4">Mot de Passe</span>
+                <input type="password" name="userPass" ngModel class="form-control">
+              </div>
+
+            </div>
+
+            <div *ngIf="c">
+              <p class="text-success text-center"> Bienvenue {{admin.userName}} ! </p>
+            </div>
+
+            <div *ngIf="d">
+              <p class="text-danger text-center">Vos identifiants sont incorrects: veuillez réessayer! Merci</p>
+            </div>
+
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-secondary">Enregistrer</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+
+      <!-- **********************partie ADMINISTRATEUR************************ -->
+      <div *ngIf="c" class="d-flex">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="btn btn-dark text-white dropdown-toggle" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              {{admin.userName}} Administrateur</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item nav-link active bg-light" aria-current="page"
+                  routerLink="gestionchambres">gestion Chambres</a></li>
+              <li><a class="dropdown-item nav-link active bg-light" aria-current="page"
+                  routerLink="gestionReservation">gestion Réservations</a></li>
+              <li><a class="dropdown-item nav-link active bg-light" aria-current="page" (click)="deconnect()">Déconnexion</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

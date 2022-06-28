@@ -1,0 +1,154 @@
+<div class="container m-2 bg-light" height="500px">
+    <div class="row mt-5">
+        <div class="col-6">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://www.hotelvictor.fr/wp-content/uploads/2020/07/0667-couleur-web-2.jpg"
+                            class="d-block w-100" alt="visuel d'une chambre double">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://p.bookcdn.com/data/Photos/Big/7134/713441/713441284/Hotel-Victor-photos-Exterior.JPEG"
+                            class="d-block w-100" alt="visuel d'une chambre double">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://q-xx.bstatic.com/xdata/images/hotel/840x460/166801517.jpg?k=8ff817a03ecd16279cedc01cdd6f0c5f6be121e202f047957f5cb63805d4598b&o="
+                            class="d-block w-100" alt="visuel d'une chambre double">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <h4 class="text-warning text-center">découvrir nos annonces!</h4>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus expedita perspiciatis ipsam
+                voluptas cumque esse veniam corporis maiores nisi, et libero reiciendis unde quos deserunt culpa.
+                Mollitia,
+                exercitationem dignissimos. Minus?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quaerat, expedita quos itaque
+                deleniti, vero
+                ullam alias labore numquam hic, voluptas earum quia nulla ratione nesciunt officiis quam iste
+                fugiat. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Quae sit eius itaque officiis reprehenderit,
+                fugit
+                voluptatum voluptatibus aliquid dolore saepe atque suscipit ea, id labore dignissimos quaerat unde,
+                cupiditate mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis non repudiandae
+                aut
+                inventore, repellendus impedit, ex eveniet, reiciendis accusantium optio nobis delectus. Earum
+                repudiandae
+                nobis enim a at! Minima, saepe?
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- <div type="button" (click)="test()">test</div> -->
+
+
+<div class="container">
+    <h1 class="text-center text-success m-5">Nos Chambres</h1>
+
+    <!--***************** ZONE de TRI  **********************-->
+    <div class="row  m-5">
+        <div class="dropdown col-4">
+            <!-- --------------par CATEGORIES----------------------- -->
+            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">Catégories</button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li *ngFor="let c of categories"><a class="dropdown-item" (click)="categoryFilter(c)">{{c}}</a></li>
+            </ul>
+        </div>
+
+
+        <!------------------- Prix MINI / Prix MAX / Chercher ---------------------------------------->
+        <div class="col-8">
+            <form class="row" (ngSubmit)="priceFilter(f.value)" #f="ngForm">
+                <div class="col-3">
+                    <input type="number" ngModel name="min" class="form-control" placeholder="prix minimum">
+                </div>
+                <div class="col-3">
+                    <input type="number" ngModel name="max" class="form-control" placeholder="prix maximum">
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-success" type="submit">Chercher</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<!------------------- BOUCLE FOR ---------------------------------------->
+<div class="row">
+    <div class="card col-4 mt-2" *ngFor="let chambre of chambres;">
+        <img class="card-img-top" src="{{chambre.img}}" alt="Card image cap" height="230px">
+        <div class="card-body">
+            <h5 class="card-title">{{chambre.title}}</h5>
+            <p class="card-text text-muted">{{chambre.description}}</p>
+            <button class="btn btn-secondary me-2">{{chambre.price}} €/nuit</button>
+
+            <!--------------- Button trigger modal (click d'ouverture de la Modale) ------------------------------------>
+            <div style="position: relative" type="button" class="btn text-bg-danger float-end" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop" (click)="book(chambre)">
+                Réserver
+            </div>
+
+            <!--------------- Modal --------------------------------------------------->
+            <form (ngSubmit)="reserverConfirmation(client.value)" #client="ngForm" class="modal fade"
+                id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Réserver ce choix</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!----------------------------- ---------------------partie à saisir par l'utilisateur ---------------------------------------------------->
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1">Date d'arrivée</span>
+                                        <input type="text" name="dateArriver" ngModel class="form-control" id="dateA">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon4">Nom client</span>
+                                        <input type="text" name="nameClient" ngModel class="form-control" id="dateA">
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon5">Nombre de jours</span>
+                                        <input type="text" name="nombreJour" ngModel class="form-control"
+                                            id="calculDurée">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                                <button type="submit" class="btn btn-success">Confirmer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- *********section PAGINATION********************* -->
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item" *ngFor="let p of pages"><a class="page-link" (click)="pagination(p)">{{p}}</a></li>
+    </ul>
+</nav>
